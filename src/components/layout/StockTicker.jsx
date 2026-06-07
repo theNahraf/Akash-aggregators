@@ -1,7 +1,8 @@
-import { tickerData } from '../../data/marketData';
+import { useLiveMarketData } from '../../hooks/useLiveMarketData';
 
 export default function StockTicker() {
-  const items = [...tickerData, ...tickerData];
+  const { tickerItems, isLive } = useLiveMarketData();
+  const items = [...tickerItems, ...tickerItems];
 
   return (
     <div style={{
@@ -17,7 +18,22 @@ export default function StockTicker() {
       <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: '40px', background: 'linear-gradient(to right, #0B0D2A, transparent)', zIndex: 2, pointerEvents: 'none' }} />
       <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: '40px', background: 'linear-gradient(to left, #0B0D2A, transparent)', zIndex: 2, pointerEvents: 'none' }} />
 
-      <div className="ticker-container">
+      {/* Live indicator */}
+      {isLive && (
+        <div style={{
+          position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)',
+          zIndex: 3, display: 'flex', alignItems: 'center', gap: '4px',
+        }}>
+          <span style={{
+            width: '6px', height: '6px', borderRadius: '50%', background: '#10B981',
+            boxShadow: '0 0 6px rgba(16,185,129,0.6)',
+            animation: 'pulse-ring 2s ease-out infinite',
+          }} />
+          <span className="font-data" style={{ fontSize: '0.55rem', color: '#10B981', letterSpacing: '0.1em' }}>LIVE</span>
+        </div>
+      )}
+
+      <div className="ticker-container" style={{ marginLeft: isLive ? '50px' : '0' }}>
         <div className="ticker-content">
           {items.map((item, index) => (
             <div key={index} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '0 20px', flexShrink: 0 }}>

@@ -1,10 +1,12 @@
 import { motion } from 'framer-motion';
-import { marketIndices, mutualFundNAVs, goldCurrencyData, macroIndicators } from '../../data/marketData';
+import { useLiveMarketData, mutualFundNAVs, macroIndicators } from '../../hooks/useLiveMarketData';
 
 const containerVariants = { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.1 } } };
 const itemVariants = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } } };
 
 export default function MarketOverview() {
+  const { indices, goldCurrency, isLive, lastUpdated } = useLiveMarketData();
+
   return (
     <section className="section-padding" style={{ position: 'relative', overflow: 'hidden' }} aria-label="Live market overview">
       <div style={{ position: 'absolute', bottom: 0, left: 0, width: '400px', height: '400px', borderRadius: '50%', opacity: 0.04, filter: 'blur(150px)', background: 'radial-gradient(circle, #F59E0B, transparent 70%)', pointerEvents: 'none' }} />
@@ -13,14 +15,26 @@ export default function MarketOverview() {
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} style={{ textAlign: 'center', marginBottom: '40px' }}>
           <p className="section-label">◆ Live Market Overview</p>
           <h2 className="section-title">Stay Ahead of the Markets</h2>
+          {/* Live status badge */}
+          {isLive && lastUpdated && (
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginTop: '12px', background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.2)', borderRadius: '9999px', padding: '4px 14px' }}>
+              <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#10B981', boxShadow: '0 0 6px rgba(16,185,129,0.6)' }} />
+              <span className="font-data" style={{ fontSize: '0.6rem', color: '#10B981', letterSpacing: '0.1em' }}>
+                LIVE · Updated {lastUpdated.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' })}
+              </span>
+            </div>
+          )}
         </motion.div>
 
         <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className="grid-1-2-3">
           {/* Market Indices */}
           <motion.div variants={itemVariants} className="glass" style={{ padding: '24px', borderRadius: '16px' }}>
-            <h3 className="font-data" style={{ fontSize: '0.6875rem', textTransform: 'uppercase', letterSpacing: '0.15em', color: '#F59E0B', marginBottom: '20px' }}>Market Indices</h3>
+            <h3 className="font-data" style={{ fontSize: '0.6875rem', textTransform: 'uppercase', letterSpacing: '0.15em', color: '#F59E0B', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              Market Indices
+              {isLive && <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#10B981', boxShadow: '0 0 6px rgba(16,185,129,0.5)' }} />}
+            </h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-              {marketIndices.map((item) => (
+              {indices.map((item) => (
                 <div key={item.name} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingBottom: '12px', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
                   <span className="font-data" style={{ fontSize: '0.7rem', color: '#94A3B8' }}>{item.name}</span>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
@@ -34,7 +48,7 @@ export default function MarketOverview() {
             </div>
           </motion.div>
 
-          {/* Mutual Fund NAVs */}
+          {/* Mutual Fund NAVs (static) */}
           <motion.div variants={itemVariants} className="glass" style={{ padding: '24px', borderRadius: '16px' }}>
             <h3 className="font-data" style={{ fontSize: '0.6875rem', textTransform: 'uppercase', letterSpacing: '0.15em', color: '#F59E0B', marginBottom: '20px' }}>Popular Mutual Fund NAVs</h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
@@ -56,9 +70,12 @@ export default function MarketOverview() {
           {/* Gold, Currency & Macro */}
           <motion.div variants={itemVariants} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             <div className="glass" style={{ padding: '24px', borderRadius: '16px' }}>
-              <h3 className="font-data" style={{ fontSize: '0.6875rem', textTransform: 'uppercase', letterSpacing: '0.15em', color: '#F59E0B', marginBottom: '20px' }}>Gold & Currency</h3>
+              <h3 className="font-data" style={{ fontSize: '0.6875rem', textTransform: 'uppercase', letterSpacing: '0.15em', color: '#F59E0B', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                Gold & Currency
+                {isLive && <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#10B981', boxShadow: '0 0 6px rgba(16,185,129,0.5)' }} />}
+              </h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                {goldCurrencyData.map((item) => (
+                {goldCurrency.map((item) => (
                   <div key={item.name} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingBottom: '12px', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
                     <span className="font-data" style={{ fontSize: '0.7rem', color: '#94A3B8' }}>{item.name}</span>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -85,7 +102,9 @@ export default function MarketOverview() {
         </motion.div>
 
         <p className="font-data" style={{ fontSize: '0.6rem', color: 'rgba(148,163,184,0.4)', textAlign: 'center', marginTop: '32px', fontStyle: 'italic', maxWidth: '40rem', margin: '32px auto 0' }}>
-          Data shown for illustration purposes only. Actual market data may vary. Consult your advisor before making any investment decisions.
+          {isLive
+            ? 'Market data refreshes every 60 seconds via Yahoo Finance. Data may be delayed by 15-20 minutes. Consult your advisor before making investment decisions.'
+            : 'Data shown for illustration purposes. Live data unavailable. Consult your advisor before making any investment decisions.'}
         </p>
       </div>
     </section>
