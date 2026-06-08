@@ -74,7 +74,7 @@ export const services = [
   },
   {
     id: 6,
-    name: 'NPS (National Pension System)',
+    name: 'Top 5 NPS Providers',
     category: 'Retirement',
     icon: 'PiggyBank',
     iconColor: 'gold',
@@ -130,7 +130,7 @@ export const services = [
   },
   {
     id: 11,
-    name: 'Sell My Car & Vehicle Services',
+    name: 'Sell My car, Buy Second Hand Car',
     category: 'Automotive',
     icon: 'Car',
     iconColor: 'gold',

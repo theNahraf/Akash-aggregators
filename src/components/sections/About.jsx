@@ -12,10 +12,10 @@ const itemVariants = {
 };
 
 const timeline = [
-  { company: 'SBI Life Insurance', role: 'Financial Management & BD', current: false },
   { company: 'Bajaj Allianz', role: 'Sales Management & Customer Servicing', current: false },
-  { company: 'PNB MetLife', role: 'Policy Servicing & Business Development', current: false },
-  { company: 'Akash Aggregators', role: 'Independent Advisor (Current)', current: true },
+  { company: 'PNB MetLife', role: 'Business Development & Policy Servicing', current: false },
+  { company: 'SBI Life Insurance', role: 'Business Development & Financial Management ', current: false },
+  { company: 'Akash Aggregators', role: 'Director', current: true },
 ];
 
 export default function About() {
