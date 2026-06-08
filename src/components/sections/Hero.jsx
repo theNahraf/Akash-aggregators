@@ -195,7 +195,7 @@ export default function Hero() {
           align-items: center;
         }
         .hero-text-col { text-align: center; }
-        .hero-dashboard-col { display: none; }
+        .hero-dashboard-col { display: block; margin-top: 2rem; }
         .hero-cta-row { flex-direction: column; align-items: center; }
         .hero-trust-row { justify-content: center; }
 
@@ -204,7 +204,7 @@ export default function Hero() {
         }
 
         @media (min-width: 768px) {
-          .hero-dashboard-col { display: block; }
+          .hero-dashboard-col { margin-top: 0; }
         }
 
         @media (min-width: 1024px) {
