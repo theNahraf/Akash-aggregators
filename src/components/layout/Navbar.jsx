@@ -97,7 +97,7 @@ export default function Navbar() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => window.location.href = 'tel:+919878869339'}
+              onClick={() => window.open('https://wa.me/919878869339?text=Hi!%20I%27m%20interested%20in%20booking%20a%20free%20financial%20consultation.', '_blank')}
               className="btn-emerald font-data"
               style={{ fontSize: '0.8rem', padding: '10px 24px', letterSpacing: '0.05em', whiteSpace: 'nowrap' }}
             >
@@ -211,7 +211,7 @@ export default function Navbar() {
                 }}>
                   NISM-202400188719
                 </span>
-                <a href="tel:+919878869339" onClick={() => setMobileOpen(false)} className="btn-emerald" style={{ width: '100%', textAlign: 'center', display: 'block' }}>
+                <a href="https://wa.me/919878869339?text=Hi!%20I%27m%20interested%20in%20booking%20a%20free%20financial%20consultation." target="_blank" rel="noopener noreferrer" onClick={() => setMobileOpen(false)} className="btn-emerald" style={{ width: '100%', textAlign: 'center', display: 'block' }}>
                   Get Free Consultation
                 </a>
               </div>

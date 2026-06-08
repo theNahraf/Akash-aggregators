@@ -84,7 +84,7 @@ export default function Hero() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
-                onClick={() => window.location.href = 'tel:+919878869339'}
+                onClick={() => window.open('https://wa.me/919878869339?text=Hi!%20I%27m%20interested%20in%20booking%20a%20free%20financial%20consultation.', '_blank')}
                 className="btn-outline"
               >
                 Book Free Consultation
