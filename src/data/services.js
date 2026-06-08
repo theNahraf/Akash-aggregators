@@ -1,5 +1,5 @@
 
-export const serviceCategories = ['All', 'Investments', 'Insurance', 'Retirement', 'Loans & Tax', 'Real Estate'];
+export const serviceCategories = ['All', 'Investments', 'Insurance', 'Retirement', 'Loans & Tax', 'Automotive'];
 
 export const services = [
   {
@@ -130,16 +130,16 @@ export const services = [
   },
   {
     id: 11,
-    name: 'Property & Vehicle Sales',
-    category: 'Real Estate',
+    name: 'Sell My Car & Vehicle Services',
+    category: 'Automotive',
     icon: 'Car',
     iconColor: 'gold',
-    description: 'End-to-end assistance in buying and selling premium real estate and vehicles.',
+    description: 'Hassle-free assistance in selling your used car or buying a new/pre-owned vehicle.',
     bullets: [
-      'Residential and commercial property sales',
-      'New and pre-owned vehicle purchases',
-      'Transparent pricing and documentation',
-      'Seamless loan integration available',
+      'Get the best price for your old car',
+      'Instant valuation and quick process',
+      'Assistance with RC transfer & paperwork',
+      'Seamless auto loan integration',
     ],
   },
 ];
