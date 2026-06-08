@@ -89,15 +89,15 @@ export default function B2BServices() {
           <h3 className="font-display" style={{ fontSize: '1.5rem', fontWeight: 600, color: 'white', textAlign: 'center', marginBottom: '32px' }}>Our Strategic Approach</h3>
           <div className="strategic-steps">
             {strategicSteps.map((step, i) => (
-              <div key={step.step} style={{ display: 'flex', alignItems: 'center' }}>
-                <div className="glass" style={{ padding: '24px', flex: 1, borderRadius: '16px' }}>
+              <div key={step.step} style={{ display: 'flex', alignItems: 'center', flex: 1 }}>
+                <div className="glass" style={{ padding: '24px', flex: 1, borderRadius: '16px', height: '100%', display: 'flex', flexDirection: 'column' }}>
                   <div style={{ background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.2)', borderRadius: '50%', width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '16px' }}>
                     <span className="font-data" style={{ fontSize: '0.85rem', color: '#10B981', fontWeight: 700 }}>{step.step}</span>
                   </div>
                   <h4 className="font-display" style={{ fontSize: '1.1rem', fontWeight: 600, color: 'white', marginBottom: '8px' }}>{step.title}</h4>
                   <p className="font-body" style={{ color: '#94A3B8', fontSize: '0.85rem', lineHeight: 1.6 }}>{step.description}</p>
                 </div>
-                {i < 2 && <ArrowRight size={24} className="step-arrow" style={{ color: 'rgba(16,185,129,0.5)', margin: '0 8px', flexShrink: 0 }} />}
+                {i < 2 && <ArrowRight size={24} className="step-arrow" style={{ color: 'rgba(16,185,129,0.5)', margin: '0 16px', flexShrink: 0 }} />}
               </div>
             ))}
           </div>
@@ -125,14 +125,17 @@ export default function B2BServices() {
 
       <style>{`
         .strategic-steps {
-          display: grid;
-          grid-template-columns: 1fr;
+          display: flex;
+          flex-direction: column;
           gap: 1rem;
         }
         .step-arrow { display: none; }
 
         @media (min-width: 768px) {
-          .strategic-steps { grid-template-columns: 1fr auto 1fr auto 1fr; }
+          .strategic-steps { 
+            flex-direction: row; 
+            align-items: stretch; 
+          }
           .step-arrow { display: block !important; }
         }
 
