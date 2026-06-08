@@ -34,13 +34,14 @@ export default function About() {
           {/* Left — Photo & Credentials */}
           <motion.div variants={itemVariants} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }} className="about-left">
             {/* Profile Photo */}
-            <div style={{
-              width: '220px', height: '220px', borderRadius: '50%',
-              border: '3px solid rgba(16,185,129,0.4)',
+            <div className="profile-photo" style={{
+              borderRadius: '50%',
+              border: '4px solid rgba(16,185,129,0.4)',
               outline: '4px solid #05061A',
               overflow: 'hidden',
               marginBottom: '32px',
               boxShadow: '0 0 40px -10px rgba(16,185,129,0.3)',
+              flexShrink: 0,
             }}>
               <img
                 src={vaneetPhoto}
@@ -50,7 +51,7 @@ export default function About() {
             </div>
 
             {/* Credential cards */}
-            <div style={{ width: '100%', maxWidth: '280px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            <div style={{ width: '100%', maxWidth: '300px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
               <div className="glass" style={{ padding: '14px', display: 'flex', alignItems: 'center', gap: '12px' }}>
                 <Award size={18} style={{ color: '#F59E0B', flexShrink: 0 }} />
                 <div>
@@ -122,8 +123,18 @@ export default function About() {
       </div>
 
       <style>{`
+        .profile-photo {
+          width: 240px;
+          height: 240px;
+        }
         @media (min-width: 1024px) {
-          .about-left { align-items: flex-start !important; }
+          .profile-photo {
+            width: 320px;
+            height: 320px;
+          }
+          .about-left { 
+            align-items: center !important; 
+          }
         }
       `}</style>
     </section>

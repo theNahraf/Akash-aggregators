@@ -53,9 +53,9 @@ export default function Hero() {
 
             {/* H1 */}
             <motion.h1 variants={itemVariants} className="text-hero" style={{ marginBottom: '24px' }}>
-              Your Wealth,<br />
-              Engineered for<br />
-              <span className="text-gradient-emerald-gold">Growth.</span>
+              Your Trusted<br />
+              Financial &<br />
+              <span className="text-gradient-emerald-gold">Business Advisor.</span>
             </motion.h1>
 
             {/* Subheadline */}
