@@ -10,24 +10,40 @@ export default function LiveStockSearch() {
 
   const handleSearch = async (e) => {
     e.preventDefault();
-    const symbol = query.trim().toUpperCase();
-    if (!symbol) return;
+    const searchTerm = query.trim();
+    if (!searchTerm) return;
 
     setIsLoading(true);
     setError(null);
     setResult(null);
 
     try {
+      // Step 1: Resolve name to ticker using TV Symbol Search API
+      const searchRes = await fetch(`https://symbol-search.tradingview.com/symbol_search/v3/?text=${encodeURIComponent(searchTerm)}&hl=1&exchange=NSE,BSE&lang=en&search_type=undefined`);
+      if (!searchRes.ok) throw new Error('Search API failed');
+      const searchData = await searchRes.json();
+      
+      const stockMatch = searchData?.symbols?.find(s => s.type === 'stock');
+      
+      let targetTicker = '';
+      if (stockMatch) {
+        targetTicker = `${stockMatch.exchange}:${stockMatch.symbol}`;
+      } else {
+        // Fallback: assume user typed exact symbol
+        targetTicker = `NSE:${searchTerm.toUpperCase()}`;
+      }
+
+      // Step 2: Fetch live price using TV Scanner API
       const response = await fetch('https://scanner.tradingview.com/india/scan', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: JSON.stringify({
-          symbols: { tickers: [`NSE:${symbol}`, `BSE:${symbol}`] },
+          symbols: { tickers: [targetTicker, targetTicker.replace('NSE:', 'BSE:')] },
           columns: ["description", "close", "change_abs", "change"]
         }),
       });
 
-      if (!response.ok) throw new Error('Network response was not ok');
+      if (!response.ok) throw new Error('Scanner API failed');
       const data = await response.json();
 
       if (data && data.data && data.data.length > 0) {
@@ -42,7 +58,7 @@ export default function LiveStockSearch() {
           changePct: match.d[3],
         });
       } else {
-        setError('Stock not found. Try a valid NSE/BSE symbol (e.g. RELIANCE).');
+        setError(`Could not find live data for "${searchTerm}". Try a different name or symbol.`);
       }
     } catch (err) {
       setError('Failed to fetch live data. Please try again later.');
@@ -60,10 +76,9 @@ export default function LiveStockSearch() {
     <div className="glass" style={{
       padding: '24px',
       borderRadius: '16px',
-      marginTop: '32px',
+      marginBottom: '24px',
       width: '100%',
       maxWidth: '500px',
-      margin: '32px auto 0',
       position: 'relative',
       overflow: 'hidden',
     }}>
@@ -82,7 +97,7 @@ export default function LiveStockSearch() {
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="e.g. RELIANCE, TCS, INFY"
+          placeholder="e.g. Indian Oil, TCS, Reliance"
           className="font-body"
           style={{
             flex: 1,

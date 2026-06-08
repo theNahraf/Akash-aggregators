@@ -101,10 +101,6 @@ export default function Hero() {
               ))}
             </motion.div>
 
-            {/* Live Stock Search Integration */}
-            <motion.div variants={itemVariants}>
-              <LiveStockSearch />
-            </motion.div>
           </motion.div>
 
           {/* Right Content — Floating Dashboard (hidden on mobile) */}
@@ -117,6 +113,11 @@ export default function Hero() {
           >
             {/* Background glow */}
             <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '400px', height: '400px', borderRadius: '50%', opacity: 0.08, filter: 'blur(100px)', background: 'radial-gradient(circle, #10B981, transparent 70%)', pointerEvents: 'none' }} />
+
+            {/* Live Stock Search Integration */}
+            <div style={{ position: 'relative', zIndex: 10 }}>
+              <LiveStockSearch />
+            </div>
 
             {/* Main Dashboard Card */}
             <div className="glass" style={{ padding: '24px', position: 'relative', zIndex: 1, borderRadius: '16px' }}>
