@@ -32,7 +32,7 @@ export default function Footer() {
             </p>
             <div style={{ marginBottom: '16px' }}>
               <p className="font-data" style={{ fontSize: '0.625rem', color: '#F59E0B', letterSpacing: '0.15em' }}>NISM-202400188719</p>
-              <p className="font-data" style={{ fontSize: '0.625rem', color: '#94A3B8', letterSpacing: '0.15em', marginTop: '4px' }}>UDYAM-DL-11-0140765</p>
+              <p className="font-data" style={{ fontSize: '0.625rem', color: '#94A3B8', letterSpacing: '0.15em', marginTop: '4px' }}>GST: 07BNKPB0918E1ZF</p>
             </div>
             <a href="https://www.linkedin.com/in/vaneet-bansal-a03749102" target="_blank" rel="noopener noreferrer" style={{ color: '#94A3B8', display: 'inline-block' }} aria-label="LinkedIn">
               <ExternalLink size={18} />
@@ -90,7 +90,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <p className="font-body" style={{ fontSize: '0.875rem', color: '#94A3B8' }}>Tilak Nagar, West Delhi,<br />Delhi 110018</p>
+                <p className="font-body" style={{ fontSize: '0.875rem', color: '#94A3B8' }}>Second Floor, E-10, Ram Dutt Enclave,<br />Uttam Nagar, New Delhi 110059</p>
               </li>
             </ul>
           </div>

@@ -62,15 +62,15 @@ export default function About() {
               <div className="glass" style={{ padding: '14px', display: 'flex', alignItems: 'center', gap: '12px' }}>
                 <Building size={18} style={{ color: '#94A3B8', flexShrink: 0 }} />
                 <div>
-                  <p className="data-label">Udyam Registration</p>
-                  <p className="font-data" style={{ fontSize: '0.8rem', color: '#94A3B8', fontWeight: 500 }}>UDYAM-DL-11-0140765</p>
+                  <p className="data-label">GST Number</p>
+                  <p className="font-data" style={{ fontSize: '0.8rem', color: '#94A3B8', fontWeight: 500 }}>07BNKPB0918E1ZF</p>
                 </div>
               </div>
               <div className="glass" style={{ padding: '14px', display: 'flex', alignItems: 'center', gap: '12px' }}>
                 <MapPin size={18} style={{ color: '#10B981', flexShrink: 0 }} />
                 <div>
                   <p className="data-label">Location</p>
-                  <p className="font-body" style={{ fontSize: '0.85rem', color: 'white' }}>Tilak Nagar, West Delhi, Delhi 110018</p>
+                  <p className="font-body" style={{ fontSize: '0.85rem', color: 'white' }}>Second Floor, E-10, Ram Dutt Enclave, Uttam Nagar, New Delhi 110059</p>
                 </div>
               </div>
             </div>

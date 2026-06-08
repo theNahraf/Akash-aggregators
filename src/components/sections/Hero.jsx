@@ -68,7 +68,7 @@ export default function Hero() {
               margin: '0 auto 32px',
             }}>
               NISM Certified Mutual Fund Advisor with over a decade of expertise.
-              Mutual Funds · Insurance · NPS · Loans · ITR Filing — all under one roof in Delhi.
+              All Financial Instruments under one roof.
             </motion.p>
 
             {/* CTAs */}

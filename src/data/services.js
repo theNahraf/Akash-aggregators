@@ -1,5 +1,5 @@
 
-export const serviceCategories = ['All', 'Investments', 'Insurance', 'Retirement', 'Loans & Tax'];
+export const serviceCategories = ['All', 'Investments', 'Insurance', 'Retirement', 'Loans & Tax', 'Real Estate'];
 
 export const services = [
   {
@@ -126,6 +126,20 @@ export const services = [
       'Accurate & timely filing',
       'Salaried, business & professional ITR',
       'Old & new regime comparison',
+    ],
+  },
+  {
+    id: 11,
+    name: 'Property & Vehicle Sales',
+    category: 'Real Estate',
+    icon: 'Car',
+    iconColor: 'gold',
+    description: 'End-to-end assistance in buying and selling premium real estate and vehicles.',
+    bullets: [
+      'Residential and commercial property sales',
+      'New and pre-owned vehicle purchases',
+      'Transparent pricing and documentation',
+      'Seamless loan integration available',
     ],
   },
 ];

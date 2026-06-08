@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, ExternalLink, Award, Send, CheckCircle, AlertCircle } from 'lucide-react';
 
-const serviceOptions = ['Mutual Funds', 'Life Insurance', 'Term Insurance', 'Health Insurance', 'Motor Insurance', 'NPS', 'Fixed Deposits', 'Loans', 'ITR Filing', 'B2B Services', 'Other'];
+const serviceOptions = ['Mutual Funds', 'Life Insurance', 'Term Insurance', 'Health Insurance', 'Motor Insurance', 'NPS', 'Fixed Deposits', 'Loans', 'ITR Filing', 'Property & Vehicle Sales', 'B2B Services', 'Other'];
 const investmentRanges = ['Under ₹5,000/mo', '₹5,000–₹25,000/mo', '₹25,000–₹1L/mo', '₹1L+ or Lumpsum'];
 
 const inputStyle = {
@@ -49,7 +49,7 @@ export default function ContactSection() {
               {[
                 { href: 'mailto:support@aakashwealthmanagement.com', icon: Mail, iconColor: '#10B981', label: 'Email', value: 'support@aakashwealthmanagement.com' },
                 { href: 'tel:+919878869339', icon: Phone, iconColor: '#10B981', label: 'Phone', value: '+91-9878869339' },
-                { href: null, icon: MapPin, iconColor: '#10B981', label: 'Address', value: 'Tilak Nagar, West Delhi, Delhi 110018' },
+                { href: null, icon: MapPin, iconColor: '#10B981', label: 'Address', value: 'Second Floor, E-10, Ram Dutt Enclave, Uttam Nagar, New Delhi 110059' },
                 { href: 'https://www.linkedin.com/in/vaneet-bansal-a03749102', icon: ExternalLink, iconColor: '#4F46E5', label: 'LinkedIn', value: 'Connect with Vaneet Bansal', target: '_blank' },
               ].map((item) => {
                 const Wrapper = item.href ? 'a' : 'div';
@@ -83,7 +83,7 @@ export default function ContactSection() {
             {/* Map */}
             <div style={{ borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)' }}>
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14010.94424688!2d77.08!3d28.64!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d04c3c8f45e1d%3A0x9e9a3f7a8e3a3e3!2sTilak%20Nagar%2C%20New%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1"
+                src="https://maps.google.com/maps?q=E-10,+Ram+Dutt+Enclave,+Uttam+Nagar,+New+Delhi,+110059&t=&z=15&ie=UTF8&iwloc=&output=embed"
                 width="100%" height="200" style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg) brightness(0.8) contrast(1.2)', display: 'block' }}
                 allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="Office Location"
               />
