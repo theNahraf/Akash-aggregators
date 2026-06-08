@@ -18,7 +18,7 @@ export default function ContactSection() {
     e.preventDefault();
     setStatus('submitting');
     const formData = new FormData(e.target);
-    formData.append('access_key', 'YOUR_W3FORMS_ACCESS_KEY');
+    formData.append('access_key', '76c316a3-28c7-42d1-9994-8d2c3ca99e7b');
     formData.append('subject', 'New Inquiry — Akash Aggregators');
     formData.append('from_name', 'Akash Aggregators Website');
     try {
