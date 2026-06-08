@@ -78,7 +78,7 @@ export default function About() {
 
           {/* Right — Bio & Timeline */}
           <motion.div variants={itemVariants}>
-            <p className="section-label">◆ About the Advisor</p>
+            <p className="section-label">◆ About Mr Bansal</p>
             <h2 className="section-title" style={{ marginBottom: '8px' }}>Mr. Vaneet Bansal</h2>
             <p className="font-body" style={{ color: '#10B981', marginBottom: '24px' }}>
               NISM Certified Mutual Fund Advisor · Business Development Expert

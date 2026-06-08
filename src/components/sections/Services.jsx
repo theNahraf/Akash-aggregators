@@ -86,7 +86,7 @@ export default function Services() {
                     ))}
                   </ul>
 
-                  <button style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'none', border: 'none', color: '#10B981', fontSize: '0.85rem', cursor: 'pointer', padding: 0, fontFamily: 'var(--font-body)' }}>
+                  <button onClick={() => window.open(`https://wa.me/919878869339?text=Hi!%20I'm%20interested%20in%20learning%20more%20about%20your%20${encodeURIComponent(service.name)}%20services.`)} style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'none', border: 'none', color: '#10B981', fontSize: '0.85rem', cursor: 'pointer', padding: 0, fontFamily: 'var(--font-body)' }}>
                     Learn More <ArrowRight size={14} />
                   </button>
                 </motion.div>

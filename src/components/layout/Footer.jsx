@@ -76,10 +76,10 @@ export default function Footer() {
             <h3 className="font-data" style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'white', marginBottom: '20px' }}>Contact</h3>
             <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
               <li>
-                <a href="mailto:support@aakashwealthmanagement.com" className="font-body" style={{ fontSize: '0.875rem', color: '#94A3B8', textDecoration: 'none', wordBreak: 'break-all', transition: 'color 0.3s' }}
-                  onMouseOver={(e) => e.target.style.color = '#10B981'} onMouseOut={(e) => e.target.style.color = '#94A3B8'}
-                >
-                  support@aakashwealthmanagement.com
+                <a href="mailto:vaneetbansal001@gmail.com" className="font-body" style={{ fontSize: '0.875rem', color: '#94A3B8', textDecoration: 'none', wordBreak: 'break-all', transition: 'color 0.3s' }}
+                  onMouseEnter={(e) => e.target.style.color = '#10B981'}
+                  onMouseLeave={(e) => e.target.style.color = '#94A3B8'}>
+                  vaneetbansal001@gmail.com
                 </a>
               </li>
               <li>

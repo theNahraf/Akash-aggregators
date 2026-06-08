@@ -84,7 +84,7 @@ export default function Hero() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
-                onClick={() => handleScrollTo('#contact')}
+                onClick={() => window.location.href = 'tel:+919878869339'}
                 className="btn-outline"
               >
                 Book Free Consultation

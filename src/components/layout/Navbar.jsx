@@ -94,14 +94,15 @@ export default function Navbar() {
             }}>
               NISM-202400188719
             </span>
-            <a
-              href="#contact"
-              onClick={(e) => handleNavClick(e, '#contact')}
-              className="btn-emerald"
-              style={{ fontSize: '0.8125rem', padding: '8px 20px' }}
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => window.location.href = 'tel:+919878869339'}
+              className="btn-emerald font-data"
+              style={{ fontSize: '0.8rem', padding: '10px 24px', letterSpacing: '0.05em', whiteSpace: 'nowrap' }}
             >
               Get Free Consultation
-            </a>
+            </motion.button>
           </div>
 
           {/* Mobile hamburger */}
@@ -210,7 +211,7 @@ export default function Navbar() {
                 }}>
                   NISM-202400188719
                 </span>
-                <a href="#contact" onClick={(e) => handleNavClick(e, '#contact')} className="btn-emerald" style={{ width: '100%', textAlign: 'center', display: 'block' }}>
+                <a href="tel:+919878869339" onClick={() => setMobileOpen(false)} className="btn-emerald" style={{ width: '100%', textAlign: 'center', display: 'block' }}>
                   Get Free Consultation
                 </a>
               </div>
