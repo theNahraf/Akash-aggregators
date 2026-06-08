@@ -18,7 +18,7 @@ const itemVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' } },
 };
 
-const trustItems = ['SEBI Regulated', '10+ Years Experience', '500+ Clients', 'Govt. NPS Partner'];
+const trustItems = ['SEBI Regulated', '10+ Years Experience', '1400+ Clients', 'Govt. NPS Partner'];
 
 export default function Hero() {
   const handleScrollTo = (id) => {
@@ -118,7 +118,7 @@ export default function Hero() {
             <div style={{ position: 'relative', zIndex: 10 }}>
               <LiveStockSearch />
             </div>
-            
+
             {/* Portfolio Chart & Floating Cards Container */}
             <div style={{ position: 'relative', marginTop: '24px' }}>
               {/* Main Dashboard Card */}
