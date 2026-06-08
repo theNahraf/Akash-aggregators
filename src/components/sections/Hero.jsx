@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { AreaChart, Area, ResponsiveContainer } from 'recharts';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import LiveStockSearch from './LiveStockSearch';
 
 const portfolioData = [
   { v: 10 }, { v: 15 }, { v: 13 }, { v: 22 }, { v: 19 },
@@ -98,6 +99,11 @@ export default function Hero() {
                   {item}
                 </span>
               ))}
+            </motion.div>
+
+            {/* Live Stock Search Integration */}
+            <motion.div variants={itemVariants}>
+              <LiveStockSearch />
             </motion.div>
           </motion.div>
 
