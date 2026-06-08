@@ -1,27 +1,21 @@
 import { useState, useEffect, useCallback } from 'react';
 
-// Yahoo Finance symbols for Indian market
+// TradingView symbols
 const SYMBOLS = {
   indices: [
-    { symbol: '^BSESN', name: 'SENSEX' },
-    { symbol: '^NSEI', name: 'NIFTY 50' },
-    { symbol: '^NSEBANK', name: 'BANK NIFTY' },
-    { symbol: '^CNXIT', name: 'NIFTY IT' },
+    { symbol: 'BSE:SENSEX', name: 'SENSEX', region: 'india' },
+    { symbol: 'NSE:NIFTY', name: 'NIFTY 50', region: 'india' },
+    { symbol: 'NSE:BANKNIFTY', name: 'BANK NIFTY', region: 'india' },
+    { symbol: 'NSE:CNXIT', name: 'NIFTY IT', region: 'india' },
   ],
   commoditiesCurrency: [
-    { symbol: 'GC=F', name: 'Gold (Intl)', unit: 'USD/oz' },
-    { symbol: 'SI=F', name: 'Silver (Intl)', unit: 'USD/oz' },
-    { symbol: 'USDINR=X', name: 'USD/INR', unit: '' },
-    { symbol: 'EURINR=X', name: 'EUR/INR', unit: '' },
+    { symbol: 'COMEX:GC1!', name: 'Gold (Intl)', unit: 'USD/oz', region: 'global' },
+    { symbol: 'COMEX:SI1!', name: 'Silver (Intl)', unit: 'USD/oz', region: 'global' },
+    { symbol: 'FX_IDC:USDINR', name: 'USD/INR', unit: '', region: 'global' },
+    { symbol: 'FX_IDC:EURINR', name: 'EUR/INR', unit: '', region: 'global' },
   ],
 };
 
-const ALL_SYMBOLS = [
-  ...SYMBOLS.indices,
-  ...SYMBOLS.commoditiesCurrency,
-].map((s) => s.symbol);
-
-const YAHOO_BASE = '/api/finance';
 const REFRESH_INTERVAL = 60_000; // 60 seconds
 
 // Static fallback data
@@ -57,50 +51,67 @@ function formatNumber(num, decimals = 2) {
 
 function formatPrice(symbol, price) {
   if (symbol.includes('INR')) return `₹${formatNumber(price)}`;
-  if (symbol === 'GC=F' || symbol === 'SI=F') return `$${formatNumber(price)}`;
+  if (symbol.includes('GC') || symbol.includes('SI')) return `$${formatNumber(price)}`;
   return formatNumber(price);
 }
 
-async function fetchYahooQuotes() {
-  const symbolStr = ALL_SYMBOLS.join(',');
-  const targetUrl = `${YAHOO_BASE}?symbols=${symbolStr}&fields=regularMarketPrice,regularMarketChange,regularMarketChangePercent,shortName,symbol`;
-
-  const response = await fetch(targetUrl, {
+async function fetchTradingViewData(region, tickers) {
+  const url = `https://scanner.tradingview.com/${region}/scan`;
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: JSON.stringify({
+      symbols: { tickers },
+      columns: ["close", "change_abs", "change"]
+    }),
     signal: AbortSignal.timeout(8000),
   });
 
-  if (!response.ok) {
-    throw new Error(`HTTP ${response.status}`);
-  }
-
+  if (!response.ok) throw new Error(`HTTP ${response.status}`);
   const data = await response.json();
-  if (data?.quoteResponse?.result?.length > 0) {
-    return data.quoteResponse.result;
-  }
+  return data.data || [];
+}
 
-  throw new Error('No data returned from API');
+async function fetchAllLiveQuotes() {
+  const indiaTickers = [...SYMBOLS.indices, ...SYMBOLS.commoditiesCurrency]
+    .filter(s => s.region === 'india')
+    .map(s => s.symbol);
+    
+  const globalTickers = [...SYMBOLS.indices, ...SYMBOLS.commoditiesCurrency]
+    .filter(s => s.region === 'global')
+    .map(s => s.symbol);
+
+  const [indiaData, globalData] = await Promise.all([
+    indiaTickers.length > 0 ? fetchTradingViewData('india', indiaTickers) : Promise.resolve([]),
+    globalTickers.length > 0 ? fetchTradingViewData('global', globalTickers) : Promise.resolve([])
+  ]);
+
+  return [...indiaData, ...globalData];
 }
 
 function parseQuotes(quotes) {
   const symbolMap = {};
   for (const q of quotes) {
-    symbolMap[q.symbol] = q;
+    // q.d = [close, change_abs, change_percent]
+    symbolMap[q.s] = {
+      price: q.d[0],
+      changeAbs: q.d[1],
+      changePct: q.d[2]
+    };
   }
 
   // Build indices data
   const indices = SYMBOLS.indices.map((s) => {
     const q = symbolMap[s.symbol];
     if (!q) return null;
-    const change = q.regularMarketChange || 0;
-    const changePct = q.regularMarketChangePercent || 0;
-    const direction = change >= 0 ? 'up' : 'down';
+    const direction = q.changeAbs >= 0 ? 'up' : 'down';
     return {
       name: s.name,
-      price: formatNumber(q.regularMarketPrice),
-      change: `${change >= 0 ? '+' : ''}${formatNumber(change)} (${Math.abs(changePct).toFixed(2)}%)`,
+      price: formatNumber(q.price),
+      change: `${q.changeAbs >= 0 ? '+' : ''}${formatNumber(q.changeAbs)} (${Math.abs(q.changePct).toFixed(2)}%)`,
       direction,
-      rawPrice: q.regularMarketPrice,
-      rawChange: change,
+      rawPrice: q.price,
+      rawChange: q.changeAbs,
     };
   }).filter(Boolean);
 
@@ -108,14 +119,13 @@ function parseQuotes(quotes) {
   const goldCurrency = SYMBOLS.commoditiesCurrency.map((s) => {
     const q = symbolMap[s.symbol];
     if (!q) return null;
-    const change = q.regularMarketChange || 0;
-    const direction = change >= 0 ? 'up' : 'down';
+    const direction = q.changeAbs >= 0 ? 'up' : 'down';
     return {
       name: s.name,
-      rate: formatPrice(s.symbol, q.regularMarketPrice),
+      rate: formatPrice(s.symbol, q.price),
       direction,
-      rawPrice: q.regularMarketPrice,
-      rawChange: change,
+      rawPrice: q.price,
+      rawChange: q.changeAbs,
     };
   }).filter(Boolean);
 
@@ -124,26 +134,24 @@ function parseQuotes(quotes) {
   for (const s of SYMBOLS.indices) {
     const q = symbolMap[s.symbol];
     if (!q) continue;
-    const change = q.regularMarketChange || 0;
     tickerItems.push({
       label: 'INDEX',
       name: s.name,
-      value: formatNumber(q.regularMarketPrice),
-      change: `${change >= 0 ? '+' : ''}${formatNumber(change)}`,
-      direction: change >= 0 ? 'up' : 'down',
+      value: formatNumber(q.price),
+      change: `${q.changeAbs >= 0 ? '+' : ''}${formatNumber(q.changeAbs)}`,
+      direction: q.changeAbs >= 0 ? 'up' : 'down',
     });
   }
   for (const s of SYMBOLS.commoditiesCurrency) {
     const q = symbolMap[s.symbol];
     if (!q) continue;
-    const change = q.regularMarketChange || 0;
     const label = s.symbol.includes('INR') ? 'FOREX' : 'COMMODITY';
     tickerItems.push({
       label,
       name: s.name,
-      value: formatPrice(s.symbol, q.regularMarketPrice),
-      change: `${change >= 0 ? '+' : ''}${formatNumber(change)}`,
-      direction: change >= 0 ? 'up' : 'down',
+      value: formatPrice(s.symbol, q.price),
+      change: `${q.changeAbs >= 0 ? '+' : ''}${formatNumber(q.changeAbs)}`,
+      direction: q.changeAbs >= 0 ? 'up' : 'down',
     });
   }
 
@@ -151,7 +159,7 @@ function parseQuotes(quotes) {
 }
 
 /**
- * Hook that fetches live market data from Yahoo Finance.
+ * Hook that fetches live market data from TradingView.
  * Auto-refreshes every 60 seconds.
  * Falls back to static data on error.
  */
@@ -167,7 +175,7 @@ export function useLiveMarketData() {
 
   const fetchData = useCallback(async () => {
     try {
-      const quotes = await fetchYahooQuotes();
+      const quotes = await fetchAllLiveQuotes();
       const parsed = parseQuotes(quotes);
       setData({
         indices: parsed.indices.length > 0 ? parsed.indices : FALLBACK_INDICES,

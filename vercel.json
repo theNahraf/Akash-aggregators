@@ -1,8 +1,0 @@
-{
-  "rewrites": [
-    {
-      "source": "/api/finance",
-      "destination": "https://query1.finance.yahoo.com/v7/finance/quote"
-    }
-  ]
-}
