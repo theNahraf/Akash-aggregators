@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Search, TrendingUp, TrendingDown, Loader2, AlertCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { popularStocks } from '../../data/popularStocks';
 
 export default function LiveStockSearch() {
   const [query, setQuery] = useState('');
@@ -18,22 +19,24 @@ export default function LiveStockSearch() {
     setResult(null);
 
     try {
-      // Step 1: Resolve name to ticker using TV Symbol Search API
-      const searchRes = await fetch(`https://symbol-search.tradingview.com/symbol_search/v3/?text=${encodeURIComponent(searchTerm)}&hl=1&exchange=NSE,BSE&lang=en&search_type=undefined`);
-      if (!searchRes.ok) throw new Error('Search API failed');
-      const searchData = await searchRes.json();
+      // Step 1: Resolve name to ticker using our local list (fuzzy match)
+      const normalizedSearch = searchTerm.toLowerCase();
       
-      const stockMatch = searchData?.symbols?.find(s => s.type === 'stock');
+      const stockMatch = popularStocks.find(s => 
+        s.symbol.toLowerCase() === normalizedSearch || 
+        s.name.toLowerCase().includes(normalizedSearch) ||
+        normalizedSearch.includes(s.symbol.toLowerCase())
+      );
       
       let targetTicker = '';
       if (stockMatch) {
-        targetTicker = `${stockMatch.exchange}:${stockMatch.symbol}`;
+        targetTicker = `NSE:${stockMatch.symbol}`;
       } else {
         // Fallback: assume user typed exact symbol
         targetTicker = `NSE:${searchTerm.toUpperCase()}`;
       }
 
-      // Step 2: Fetch live price using TV Scanner API
+      // Step 2: Fetch live price using TV Scanner API (which supports CORS)
       const response = await fetch('https://scanner.tradingview.com/india/scan', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -52,13 +55,13 @@ export default function LiveStockSearch() {
         setResult({
           symbol: match.s.split(':')[1],
           exchange: match.s.split(':')[0],
-          name: match.d[0],
+          name: match.d[0] || (stockMatch ? stockMatch.name : match.s.split(':')[1]),
           price: match.d[1],
           changeAbs: match.d[2],
           changePct: match.d[3],
         });
       } else {
-        setError(`Could not find live data for "${searchTerm}". Try a different name or symbol.`);
+        setError(`Could not find live data for "${searchTerm}". Try typing the exact company name or NSE/BSE symbol.`);
       }
     } catch (err) {
       setError('Failed to fetch live data. Please try again later.');

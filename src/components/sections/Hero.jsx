@@ -118,66 +118,69 @@ export default function Hero() {
             <div style={{ position: 'relative', zIndex: 10 }}>
               <LiveStockSearch />
             </div>
-
-            {/* Main Dashboard Card */}
-            <div className="glass" style={{ padding: '24px', position: 'relative', zIndex: 1, borderRadius: '16px' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '16px' }}>
-                <div>
-                  <p className="font-data" style={{ fontSize: '0.625rem', color: '#94A3B8', textTransform: 'uppercase', letterSpacing: '0.15em' }}>Portfolio Performance</p>
-                  <p className="font-display" style={{ fontSize: '1.5rem', fontWeight: 700, color: 'white', marginTop: '4px' }}>₹12,45,000</p>
+            
+            {/* Portfolio Chart & Floating Cards Container */}
+            <div style={{ position: 'relative', marginTop: '24px' }}>
+              {/* Main Dashboard Card */}
+              <div className="glass" style={{ padding: '24px', position: 'relative', zIndex: 1, borderRadius: '16px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '16px' }}>
+                  <div>
+                    <p className="font-data" style={{ fontSize: '0.625rem', color: '#94A3B8', textTransform: 'uppercase', letterSpacing: '0.15em' }}>Portfolio Performance</p>
+                    <p className="font-display" style={{ fontSize: '1.5rem', fontWeight: 700, color: 'white', marginTop: '4px' }}>₹12,45,000</p>
+                  </div>
+                  <span className="font-data" style={{ fontSize: '0.7rem', color: '#10B981', background: 'rgba(16,185,129,0.1)', padding: '4px 8px', borderRadius: '6px' }}>+18.4% XIRR</span>
                 </div>
-                <span className="font-data" style={{ fontSize: '0.7rem', color: '#10B981', background: 'rgba(16,185,129,0.1)', padding: '4px 8px', borderRadius: '6px' }}>+18.4% XIRR</span>
+                <div style={{ height: '140px' }}>
+                  <ResponsiveContainer width="100%" height="100%">
+                    <AreaChart data={portfolioData}>
+                      <defs>
+                        <linearGradient id="heroGradient" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stopColor="#10B981" stopOpacity={0.4} />
+                          <stop offset="100%" stopColor="#10B981" stopOpacity={0} />
+                        </linearGradient>
+                      </defs>
+                      <Area type="monotone" dataKey="v" stroke="#10B981" strokeWidth={2} fill="url(#heroGradient)" />
+                    </AreaChart>
+                  </ResponsiveContainer>
+                </div>
               </div>
-              <div style={{ height: '140px' }}>
-                <ResponsiveContainer width="100%" height="100%">
-                  <AreaChart data={portfolioData}>
-                    <defs>
-                      <linearGradient id="heroGradient" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stopColor="#10B981" stopOpacity={0.4} />
-                        <stop offset="100%" stopColor="#10B981" stopOpacity={0} />
-                      </linearGradient>
-                    </defs>
-                    <Area type="monotone" dataKey="v" stroke="#10B981" strokeWidth={2} fill="url(#heroGradient)" />
-                  </AreaChart>
-                </ResponsiveContainer>
+
+              {/* Floating Card 1 — Monthly SIP */}
+              <div className="glass" style={{
+                position: 'absolute', top: '-16px', right: '-8px',
+                padding: '16px', zIndex: 2, width: '180px', borderRadius: '12px',
+                animation: 'float 6s ease-in-out infinite',
+                boxShadow: '0 0 30px -10px rgba(16,185,129,0.2)',
+              }}>
+                <p className="data-label">Monthly SIP</p>
+                <p className="font-display" style={{ fontSize: '1.375rem', fontWeight: 700, color: 'white', marginTop: '4px' }}>₹5,000</p>
+                <p className="font-data" style={{ fontSize: '0.7rem', color: '#10B981', marginTop: '4px' }}>+18.4% XIRR</p>
               </div>
-            </div>
 
-            {/* Floating Card 1 — Monthly SIP */}
-            <div className="glass" style={{
-              position: 'absolute', top: '-16px', right: '-8px',
-              padding: '16px', zIndex: 2, width: '180px', borderRadius: '12px',
-              animation: 'float 6s ease-in-out infinite',
-              boxShadow: '0 0 30px -10px rgba(16,185,129,0.2)',
-            }}>
-              <p className="data-label">Monthly SIP</p>
-              <p className="font-display" style={{ fontSize: '1.375rem', fontWeight: 700, color: 'white', marginTop: '4px' }}>₹5,000</p>
-              <p className="font-data" style={{ fontSize: '0.7rem', color: '#10B981', marginTop: '4px' }}>+18.4% XIRR</p>
-            </div>
+              {/* Floating Card 2 — AUM */}
+              <div className="glass" style={{
+                position: 'absolute', bottom: '-16px', left: '-8px',
+                padding: '16px', zIndex: 2, width: '180px', borderRadius: '12px',
+                animation: 'float 6s ease-in-out 2s infinite',
+              }}>
+                <p className="data-label">Total AUM Managed</p>
+                <p className="font-display gold-shimmer" style={{ fontSize: '1.375rem', fontWeight: 700, marginTop: '4px' }}>₹4.2 Cr+</p>
+              </div>
 
-            {/* Floating Card 2 — AUM */}
-            <div className="glass" style={{
-              position: 'absolute', bottom: '-16px', left: '-8px',
-              padding: '16px', zIndex: 2, width: '180px', borderRadius: '12px',
-              animation: 'float 6s ease-in-out 2s infinite',
-            }}>
-              <p className="data-label">Total AUM Managed</p>
-              <p className="font-display gold-shimmer" style={{ fontSize: '1.375rem', fontWeight: 700, marginTop: '4px' }}>₹4.2 Cr+</p>
-            </div>
-
-            {/* Floating Card 3 — Active Clients */}
-            <div className="glass" style={{
-              position: 'absolute', bottom: '32px', right: '-4px',
-              padding: '16px', zIndex: 2, width: '160px', borderRadius: '12px',
-              animation: 'float 6s ease-in-out 1s infinite',
-            }}>
-              <p className="data-label">Active Clients</p>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '4px' }}>
-                <p className="font-display" style={{ fontSize: '1.375rem', fontWeight: 700, color: 'white' }}>500+</p>
-                <span style={{ position: 'relative', width: '10px', height: '10px' }}>
-                  <span style={{ position: 'absolute', inset: 0, borderRadius: '50%', background: '#10B981', animation: 'pulse-ring 2s ease-out infinite' }} />
-                  <span style={{ position: 'relative', display: 'block', width: '10px', height: '10px', borderRadius: '50%', background: '#10B981' }} />
-                </span>
+              {/* Floating Card 3 — Active Clients */}
+              <div className="glass" style={{
+                position: 'absolute', bottom: '40px', right: '-24px',
+                padding: '16px', zIndex: 2, width: '160px', borderRadius: '12px',
+                animation: 'float 6s ease-in-out 4s infinite',
+              }}>
+                <p className="data-label">Active Clients</p>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '4px' }}>
+                  <p className="font-display" style={{ fontSize: '1.375rem', fontWeight: 700, color: 'white' }}>500+</p>
+                  <span style={{ position: 'relative', width: '10px', height: '10px' }}>
+                    <span style={{ position: 'absolute', inset: 0, borderRadius: '50%', background: '#10B981', animation: 'pulse-ring 2s ease-out infinite' }} />
+                    <span style={{ position: 'relative', display: 'block', width: '10px', height: '10px', borderRadius: '50%', background: '#10B981' }} />
+                  </span>
+                </div>
               </div>
             </div>
           </motion.div>
