@@ -21,12 +21,7 @@ const ALL_SYMBOLS = [
   ...SYMBOLS.commoditiesCurrency,
 ].map((s) => s.symbol);
 
-const CORS_PROXIES = [
-  'https://corsproxy.io/?',
-  'https://api.allorigins.win/raw?url=',
-];
-
-const YAHOO_BASE = 'https://query1.finance.yahoo.com/v7/finance/quote';
+const YAHOO_BASE = '/api/finance';
 const REFRESH_INTERVAL = 60_000; // 60 seconds
 
 // Static fallback data
@@ -66,31 +61,24 @@ function formatPrice(symbol, price) {
   return formatNumber(price);
 }
 
-async function fetchWithProxy(proxyUrl, targetUrl) {
-  const response = await fetch(proxyUrl + encodeURIComponent(targetUrl), {
-    signal: AbortSignal.timeout(8000),
-  });
-  if (!response.ok) throw new Error(`HTTP ${response.status}`);
-  return response.json();
-}
-
 async function fetchYahooQuotes() {
   const symbolStr = ALL_SYMBOLS.join(',');
   const targetUrl = `${YAHOO_BASE}?symbols=${symbolStr}&fields=regularMarketPrice,regularMarketChange,regularMarketChangePercent,shortName,symbol`;
 
-  for (const proxy of CORS_PROXIES) {
-    try {
-      const data = await fetchWithProxy(proxy, targetUrl);
-      if (data?.quoteResponse?.result?.length > 0) {
-        return data.quoteResponse.result;
-      }
-    } catch (err) {
-      console.warn(`Proxy ${proxy} failed:`, err.message);
-      continue;
-    }
+  const response = await fetch(targetUrl, {
+    signal: AbortSignal.timeout(8000),
+  });
+
+  if (!response.ok) {
+    throw new Error(`HTTP ${response.status}`);
   }
 
-  throw new Error('All proxies failed');
+  const data = await response.json();
+  if (data?.quoteResponse?.result?.length > 0) {
+    return data.quoteResponse.result;
+  }
+
+  throw new Error('No data returned from API');
 }
 
 function parseQuotes(quotes) {
