@@ -18,7 +18,7 @@ const itemVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' } },
 };
 
-const trustItems = ['SEBI Regulated', '10+ Years Experience', '500+ Clients', 'Govt. NPS Partner'];
+const trustItems = ['SEBI Regulated', '10+ Years Experience', '1437+ Clients', 'Govt. NPS Partner'];
 
 export default function Hero() {
   const handleScrollTo = (id) => {
@@ -175,7 +175,7 @@ export default function Hero() {
               }}>
                 <p className="data-label">Active Clients</p>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '4px' }}>
-                  <p className="font-display" style={{ fontSize: '1.375rem', fontWeight: 700, color: 'white' }}>500+</p>
+                  <p className="font-display" style={{ fontSize: '1.375rem', fontWeight: 700, color: 'white' }}>1437+</p>
                   <span style={{ position: 'relative', width: '10px', height: '10px' }}>
                     <span style={{ position: 'absolute', inset: 0, borderRadius: '50%', background: '#10B981', animation: 'pulse-ring 2s ease-out infinite' }} />
                     <span style={{ position: 'relative', display: 'block', width: '10px', height: '10px', borderRadius: '50%', background: '#10B981' }} />
