@@ -4,7 +4,7 @@ export const serviceCategories = ['All', 'Investments', 'Insurance', 'Retirement
 export const services = [
   {
     id: 1,
-    name: 'Mutual Funds',
+    name: 'Top 5 Mutual Funds',
     category: 'Investments',
     icon: 'TrendingUp',
     iconColor: 'emerald',
@@ -18,7 +18,7 @@ export const services = [
   },
   {
     id: 2,
-    name: 'Life Insurance',
+    name: 'Top 5 Life Insurance Plans',
     category: 'Insurance',
     icon: 'Heart',
     iconColor: 'emerald',
@@ -32,7 +32,7 @@ export const services = [
   },
   {
     id: 3,
-    name: 'Term Life Insurance',
+    name: 'Top 5 Term Insurance Plans',
     category: 'Insurance',
     icon: 'Shield',
     iconColor: 'gold',
@@ -46,7 +46,7 @@ export const services = [
   },
   {
     id: 4,
-    name: 'Health Insurance',
+    name: 'Top 5 Health Insurance Plans',
     category: 'Insurance',
     icon: 'Activity',
     iconColor: 'emerald',
@@ -60,7 +60,7 @@ export const services = [
   },
   {
     id: 5,
-    name: 'Motor Insurance',
+    name: 'Top 5 Motor Insurance',
     category: 'Insurance',
     icon: 'Car',
     iconColor: 'slate',
