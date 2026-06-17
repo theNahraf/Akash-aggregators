@@ -74,16 +74,31 @@ export default function SIPCalculator() {
             {/* Expected Return Rate */}
             <div style={{ marginBottom: '28px' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
-                <p className="data-label">Expected Return Rate</p>
-                <p className="font-data" style={{ fontSize: '0.85rem', color: '#10B981', fontWeight: 500 }}>{annualRate}%</p>
-              </div>
-              <input type="range" min="1" max="40" step="1" value={annualRate} onChange={(e) => setAnnualRate(Number(e.target.value))} />
-              <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '4px', marginBottom: '16px' }}>
-                <span className="data-label">1%</span>
-                <span className="data-label">40%</span>
+                <p className="data-label">Expected Return Rate (%)</p>
+                <input
+                  type="number"
+                  min="0"
+                  max="200"
+                  step="0.1"
+                  value={annualRate}
+                  onChange={(e) => setAnnualRate(Number(e.target.value))}
+                  className="font-data"
+                  style={{
+                    width: '90px',
+                    padding: '8px 12px',
+                    borderRadius: '8px',
+                    border: '1px solid rgba(16,185,129,0.3)',
+                    background: 'rgba(255,255,255,0.05)',
+                    color: '#10B981',
+                    fontSize: '0.9rem',
+                    fontWeight: 500,
+                    textAlign: 'right',
+                    outline: 'none',
+                  }}
+                />
               </div>
               
-              <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+              <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginTop: '16px' }}>
                 {presets.map((p) => (
                   <button key={p.rate} onClick={() => setAnnualRate(p.rate)} className="font-data" style={{
                     fontSize: '0.65rem', padding: '8px 12px', borderRadius: '8px', cursor: 'pointer', border: 'none', transition: 'all 0.3s',
