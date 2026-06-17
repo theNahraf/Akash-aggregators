@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, ExternalLink, Award, Send, CheckCircle, AlertCircle } from 'lucide-react';
 
-const serviceOptions = ['Mutual Funds', 'Life Insurance', 'Term Insurance', 'Health Insurance', 'Motor Insurance', 'NPS', 'Fixed Deposits', 'Loans', 'ITR Filing', 'Sell My Car & Vehicles', 'B2B Services', 'Other'];
+const serviceOptions = ['Mutual Funds', 'Life Insurance', 'Term Insurance', 'Health Insurance', 'Motor Insurance', 'NPS', 'Fixed Deposits', 'Loans', 'ITR Filing', 'Sell my car online', 'Buy a second hand car online near me', 'B2B Services', 'Other'];
 const investmentRanges = ['Under ₹5,000/mo', '₹5,000–₹25,000/mo', '₹25,000–₹1L/mo', '₹1L+ or Lumpsum'];
 
 const inputStyle = {
