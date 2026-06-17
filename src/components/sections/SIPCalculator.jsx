@@ -71,9 +71,18 @@ export default function SIPCalculator() {
         <div className="sip-layout">
           {/* Controls */}
           <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="sip-controls">
-            {/* Presets */}
+            {/* Expected Return Rate */}
             <div style={{ marginBottom: '28px' }}>
-              <p className="data-label" style={{ marginBottom: '10px' }}>Expected Return Rate</p>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
+                <p className="data-label">Expected Return Rate</p>
+                <p className="font-data" style={{ fontSize: '0.85rem', color: '#10B981', fontWeight: 500 }}>{annualRate}%</p>
+              </div>
+              <input type="range" min="1" max="40" step="1" value={annualRate} onChange={(e) => setAnnualRate(Number(e.target.value))} />
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '4px', marginBottom: '16px' }}>
+                <span className="data-label">1%</span>
+                <span className="data-label">40%</span>
+              </div>
+              
               <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
                 {presets.map((p) => (
                   <button key={p.rate} onClick={() => setAnnualRate(p.rate)} className="font-data" style={{
