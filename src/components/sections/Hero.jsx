@@ -18,7 +18,7 @@ const itemVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' } },
 };
 
-const trustItems = ['SEBI Regulated', '10+ Years Experience', '1437+ Clients', 'Govt. NPS Partner'];
+const trustItems = ['SEBI Regulated', '10+ Years Experience', '1437+ Clients', 'Govt. Registered'];
 
 export default function Hero() {
   const handleScrollTo = (id) => {

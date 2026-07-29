@@ -14,7 +14,7 @@ const cards = [
   { icon: Shield, title: 'NISM Certified', body: 'Official NISM-202400188719 registration ensuring professional and SEBI-compliant financial advice for all your investments.' },
   { icon: Calendar, title: 'Decade of Experience', body: '10+ years in financial and business development. Alumni of SBI Life, Bajaj Allianz, and PNB MetLife.' },
   { icon: Home, title: 'One-Stop Solution', body: 'Mutual Funds · Insurance · NPS · Loans · ITR Filing — comprehensive financial services all under one roof.' },
-  { icon: Building2, title: 'Government Collaboration', body: 'Direct partnership with State & Central Govt. NPS Departments for seamless retirement planning.' },
+  { icon: Building2, title: 'Government Collaboration', body: 'Direct partnership with State & Central Govt. Registered for seamless retirement planning.' },
   { icon: Target, title: 'Personalized Approach', body: 'Solutions tailored to your risk appetite, timeline, and unique financial goals — no cookie-cutter advice.' },
   { icon: MessageCircle, title: 'Dedicated Support', body: 'CRM-backed B2B & B2C marketing with continuous policy servicing and portfolio monitoring.' },
 ];

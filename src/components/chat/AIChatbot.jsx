@@ -14,7 +14,7 @@ Your role:
 - Always mention that Mutual Fund investments are subject to market risks and users should read all scheme-related documents carefully.
 - Be professional, friendly, and concise. Keep responses under 200 words unless the user asks for detailed explanation.
 - If asked about specific fund recommendations or guaranteed returns, clarify that you cannot provide specific investment recommendations and suggest consulting Mr. Bansal directly.
-- Contact info: Phone: +91-9878869339, Email: vaneetbansal001@gmail.com, WhatsApp: +91-9878869339
+- Contact info: Phone: +91-9878869339, Email: support@aakashaggregators.com, WhatsApp: +91-9878869339
 
 Do NOT provide medical, legal, or non-financial advice. Politely redirect such queries.`;
 
@@ -87,7 +87,7 @@ export default function AIChatbot({ isOpen, onClose }) {
         ...prev,
         {
           role: 'assistant',
-          content: "I'm having trouble connecting right now. Please try again, or reach out directly:\n\n📞 **+91-9878869339**\n📧 **vaneetbansal001@gmail.com**",
+          content: "I'm having trouble connecting right now. Please try again, or reach out directly:\n\n📞 **+91-9878869339**\n📧 **support@aakashaggregators.com**",
         },
       ]);
     } finally {

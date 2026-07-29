@@ -5,7 +5,7 @@ import AIChatbot from '../chat/AIChatbot';
 
 const WHATSAPP_NUMBER = '919878869339';
 const WHATSAPP_MESSAGE = encodeURIComponent('Hi, I would like to know more about your financial services.');
-const EMAIL = 'vaneetbansal001@gmail.com';
+const EMAIL = 'support@aakashaggregators.com';
 const EMAIL_SUBJECT = encodeURIComponent('Inquiry — Akash Aggregators');
 
 export default function FloatingActions() {

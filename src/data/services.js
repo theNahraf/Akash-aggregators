@@ -82,7 +82,7 @@ export const services = [
     bullets: [
       'Build a robust retirement corpus',
       'Tax benefits under 80C & 80CCD(1B)',
-      'Direct Govt. NPS partnership',
+      'Direct Govt. Registered',
       'Choice of fund managers & asset mix',
     ],
   },

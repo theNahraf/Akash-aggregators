@@ -47,7 +47,7 @@ export default function ContactSection() {
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '24px' }}>
               {[
-                { href: 'mailto:vaneetbansal001@gmail.com', icon: Mail, iconColor: '#10B981', label: 'Email', value: 'vaneetbansal001@gmail.com' },
+                { href: 'mailto:support@aakashaggregators.com', icon: Mail, iconColor: '#10B981', label: 'Email', value: 'support@aakashaggregators.com' },
                 { href: 'tel:+919878869339', icon: Phone, iconColor: '#10B981', label: 'Phone', value: '+91-9878869339' },
                 { href: null, icon: MapPin, iconColor: '#10B981', label: 'Address', value: 'Second Floor, E-10, Ram Dutt Enclave, Uttam Nagar, New Delhi 110059' },
                 { href: 'https://www.linkedin.com/in/vaneet-bansal-a03749102', icon: ExternalLink, iconColor: '#4F46E5', label: 'LinkedIn', value: 'Connect with Vaneet Bansal', target: '_blank' },
