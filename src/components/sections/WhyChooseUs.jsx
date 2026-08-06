@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Shield, Calendar, Home, Building2, Target, MessageCircle } from 'lucide-react';
+import { Shield, Calendar, Home, Users, Target, MessageCircle } from 'lucide-react';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -14,7 +14,7 @@ const cards = [
   { icon: Shield, title: 'NISM Certified', body: 'Official NISM-202400188719 registration ensuring professional and SEBI-compliant financial advice for all your investments.' },
   { icon: Calendar, title: 'Decade of Experience', body: '10+ years in financial and business development. Alumni of SBI Life, Bajaj Allianz, and PNB MetLife.' },
   { icon: Home, title: 'One-Stop Solution', body: 'Mutual Funds · Insurance · NPS · Loans · ITR Filing — comprehensive financial services all under one roof.' },
-  { icon: Building2, title: 'Government Collaboration', body: 'Direct partnership with State & Central Govt. Registered for seamless retirement planning.' },
+  { icon: Users, title: 'Staff Recruitment Services', body: 'End-to-end hiring solutions — sourcing, screening & placing top talent across industries to build your winning team.' },
   { icon: Target, title: 'Personalized Approach', body: 'Solutions tailored to your risk appetite, timeline, and unique financial goals — no cookie-cutter advice.' },
   { icon: MessageCircle, title: 'Dedicated Support', body: 'CRM-backed B2B & B2C marketing with continuous policy servicing and portfolio monitoring.' },
 ];

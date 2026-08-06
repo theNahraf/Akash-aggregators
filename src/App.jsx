@@ -7,6 +7,7 @@ import WhyChooseUs from './components/sections/WhyChooseUs';
 import Services from './components/sections/Services';
 import SIPCalculator from './components/sections/SIPCalculator';
 import B2BServices from './components/sections/B2BServices';
+import StaffRecruitment from './components/sections/StaffRecruitment';
 import MarketOverview from './components/sections/MarketOverview';
 import FAQ from './components/sections/FAQ';
 import Testimonials from './components/sections/Testimonials';
@@ -28,6 +29,7 @@ function App() {
         <Services />
         <SIPCalculator />
         <B2BServices />
+        <StaffRecruitment />
         <MarketOverview />
         <FAQ />
         <Testimonials />
