@@ -1,9 +1,9 @@
 import { useCountUp } from '../../hooks/useCountUp';
 
 const stats = [
-  { end: 10, suffix: '+', label: 'Years\nExperience' },
+  { end: 12, suffix: '+', label: 'Years\nExperience' },
   { end: 1937, suffix: '+', label: 'Clients\nServed' },
-  { end: 4.2, suffix: ' Cr+', label: 'AUM\nManaged', prefix: '₹', isDecimal: true },
+  { end: 5, suffix: ' Cr+', label: 'AUM\nManaged', prefix: '₹', isDecimal: true },
   { end: 100, suffix: '%', label: 'NISM\nCertified' },
 ];
 
