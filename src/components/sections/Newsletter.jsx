@@ -10,11 +10,11 @@ export default function Newsletter() {
     e.preventDefault();
     if (!email) return;
     setStatus('submitting');
-    
+
     const formData = new FormData();
     formData.append('access_key', '76c316a3-28c7-42d1-9994-8d2c3ca99e7b');
     formData.append('subject', 'New Newsletter Subscriber');
-    formData.append('from_name', 'Akash Aggregators Website');
+    formData.append('from_name', 'Aakash Aggregators Website');
     formData.append('email', email);
 
     try {

@@ -5,22 +5,22 @@ import { X, Send, Bot, Sparkles, Loader2 } from 'lucide-react';
 const GROQ_API_KEY = import.meta.env.VITE_GROQ_API_KEY;
 const GROQ_MODEL = 'llama-3.1-8b-instant';
 
-const SYSTEM_PROMPT = `You are the AI assistant for **Akash Aggregators**, a NISM-Certified financial advisory firm run by Mr. Vaneet Bansal & Team (NISM Registration: NISM-202400188719, GST Number: 07BNKPB0918E1ZF), based in Second Floor, E-10, Ram Dutt Enclave, Uttam Nagar, New Delhi 110059.
+const SYSTEM_PROMPT = `You are the AI assistant for **Aakash Aggregators**, a NISM-Certified financial advisory firm run by Mr. Vaneet Bansal & Team (NISM Registration: NISM-202400188719, GST Number: 07BNKPB0918E1ZF), based in Second Floor, E-10, Ram Dutt Enclave, Uttam Nagar, New Delhi 110059.
 
 Your role:
-- Answer questions about Akash Aggregators' services: Mutual Funds (SIP/lumpsum), Life Insurance, Term Insurance, Health Insurance, Motor Insurance, NPS (National Pension System), Fixed Deposits, Loans (Personal/Home/Business), ITR Filing, and B2B Business Development services for BFSI companies.
+- Answer questions about Aakash Aggregators' services: Mutual Funds (SIP/lumpsum), Life Insurance, Term Insurance, Health Insurance, Motor Insurance, NPS (National Pension System), Fixed Deposits, Loans (Personal/Home/Business), ITR Filing, and B2B Business Development services for BFSI companies.
 - Provide general financial education and guidance about Indian financial markets, tax planning (80C, 80D, 80CCD), investment strategies, SIP benefits, insurance planning, retirement planning, etc.
 - Encourage users to schedule a free consultation with Mr. Vaneet Bansal for personalized advice.
 - Always mention that Mutual Fund investments are subject to market risks and users should read all scheme-related documents carefully.
 - Be professional, friendly, and concise. Keep responses under 200 words unless the user asks for detailed explanation.
 - If asked about specific fund recommendations or guaranteed returns, clarify that you cannot provide specific investment recommendations and suggest consulting Mr. Bansal directly.
-- Contact info: Phone: +91-9878869339, Email: support@aakashaggregators.com, WhatsApp: +91-9878869339
+- Contact info: Phone: +91-9878869339, Email: support@aAakashaggregators.com, WhatsApp: +91-9878869339
 
 Do NOT provide medical, legal, or non-financial advice. Politely redirect such queries.`;
 
 const WELCOME_MESSAGE = {
   role: 'assistant',
-  content: "👋 Hello! I'm the Akash Aggregators AI assistant. I can help you with:\n\n• **Mutual Funds & SIP** guidance\n• **Insurance** (Life, Health, Motor, Term)\n• **NPS & Retirement** planning\n• **Tax Saving** strategies (80C, 80D)\n• **Loans & ITR Filing** info\n\nHow can I help you today?",
+  content: "👋 Hello! I'm the Aakash Aggregators AI assistant. I can help you with:\n\n• **Mutual Funds & SIP** guidance\n• **Insurance** (Life, Health, Motor, Term)\n• **NPS & Retirement** planning\n• **Tax Saving** strategies (80C, 80D)\n• **Loans & ITR Filing** info\n\nHow can I help you today?",
 };
 
 export default function AIChatbot({ isOpen, onClose }) {
@@ -87,7 +87,7 @@ export default function AIChatbot({ isOpen, onClose }) {
         ...prev,
         {
           role: 'assistant',
-          content: "I'm having trouble connecting right now. Please try again, or reach out directly:\n\n📞 **+91-9878869339**\n📧 **support@aakashaggregators.com**",
+          content: "I'm having trouble connecting right now. Please try again, or reach out directly:\n\n📞 **+91-9878869339**\n📧 **support@aAakashaggregators.com**",
         },
       ]);
     } finally {
@@ -141,7 +141,7 @@ export default function AIChatbot({ isOpen, onClose }) {
                   <Sparkles size={18} style={{ color: 'white' }} />
                 </div>
                 <div>
-                  <p className="font-body" style={{ fontSize: '0.9rem', fontWeight: 600, color: 'white' }}>Akash AI Assistant</p>
+                  <p className="font-body" style={{ fontSize: '0.9rem', fontWeight: 600, color: 'white' }}>Aakash AI Assistant</p>
                   <p className="font-data" style={{ fontSize: '0.6rem', color: 'rgba(255,255,255,0.7)', letterSpacing: '0.1em' }}>POWERED BY GROQ</p>
                 </div>
               </div>

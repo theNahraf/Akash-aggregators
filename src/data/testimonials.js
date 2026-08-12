@@ -12,7 +12,7 @@ export const testimonials = [
     name: 'Priya Sharma',
     role: 'Software Engineer',
     initials: 'PS',
-    quote: 'I started my SIP journey with Akash Aggregators two years ago. The personalized mutual fund portfolio recommendations and regular reviews have given me 22%+ XIRR returns. Best financial decision I\'ve made!',
+    quote: 'I started my SIP journey with Aakash Aggregators two years ago. The personalized mutual fund portfolio recommendations and regular reviews have given me 22%+ XIRR returns. Best financial decision I\'ve made!',
     stars: 5,
   },
   {
@@ -28,7 +28,7 @@ export const testimonials = [
     name: 'Sunita Mehta',
     role: 'Teacher',
     initials: 'SM',
-    quote: 'ITR filing used to be so stressful for me every year. The team at Akash Aggregators handled everything professionally — from tax planning to filing. Saved me both time and money on taxes.',
+    quote: 'ITR filing used to be so stressful for me every year. The team at Aakash Aggregators handled everything professionally — from tax planning to filing. Saved me both time and money on taxes.',
     stars: 5,
   },
   {
@@ -44,7 +44,7 @@ export const testimonials = [
     name: 'Anil Gupta',
     role: 'Banker',
     initials: 'AG',
-    quote: 'The home loan assistance from Akash Aggregators was exceptional. They compared rates across multiple banks, negotiated better terms, and made the entire process seamless. Got the best deal possible.',
+    quote: 'The home loan assistance from Aakash Aggregators was exceptional. They compared rates across multiple banks, negotiated better terms, and made the entire process seamless. Got the best deal possible.',
     stars: 5,
   },
 ];

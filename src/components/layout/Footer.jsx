@@ -25,7 +25,7 @@ export default function Footer() {
           <div>
             <a href="#home" onClick={(e) => handleNavClick(e, '#home')} style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none', marginBottom: '16px' }}>
               <span style={{ color: '#F59E0B', fontSize: '1.25rem', fontWeight: 700 }}>◆</span>
-              <span className="font-display" style={{ fontSize: '1.25rem', fontWeight: 700, color: 'white' }}>Akash Aggregators</span>
+              <span className="font-display" style={{ fontSize: '1.25rem', fontWeight: 700, color: 'white' }}>Aakash Aggregators</span>
             </a>
             <p className="font-body" style={{ fontSize: '0.875rem', color: '#94A3B8', lineHeight: 1.7, marginBottom: '16px' }}>
               Your trusted partner for comprehensive financial solutions in India.
@@ -76,10 +76,10 @@ export default function Footer() {
             <h3 className="font-data" style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'white', marginBottom: '20px' }}>Contact</h3>
             <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
               <li>
-                <a href="mailto:support@aakashaggregators.com" className="font-body" style={{ fontSize: '0.875rem', color: '#94A3B8', textDecoration: 'none', wordBreak: 'break-all', transition: 'color 0.3s' }}
+                <a href="mailto:support@aAakashaggregators.com" className="font-body" style={{ fontSize: '0.875rem', color: '#94A3B8', textDecoration: 'none', wordBreak: 'break-all', transition: 'color 0.3s' }}
                   onMouseEnter={(e) => e.target.style.color = '#10B981'}
                   onMouseLeave={(e) => e.target.style.color = '#94A3B8'}>
-                  support@aakashaggregators.com
+                  support@aAakashaggregators.com
                 </a>
               </li>
               <li>
@@ -101,7 +101,7 @@ export default function Footer() {
       <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)', padding: '24px 0' }}>
         <div className="section-container" style={{ textAlign: 'center' }}>
           <p className="font-body" style={{ fontSize: '0.75rem', color: 'rgba(148,163,184,0.5)', marginBottom: '8px' }}>
-            © 2025 Akash Aggregators. All rights reserved.
+            © 2025 Aakash Aggregators. All rights reserved.
           </p>
           <p className="font-data" style={{ fontSize: '0.625rem', color: 'rgba(148,163,184,0.35)', fontStyle: 'italic', maxWidth: '40rem', margin: '0 auto 12px' }}>
             Mutual Fund investments are subject to market risks. Please read all scheme related documents carefully before investing.

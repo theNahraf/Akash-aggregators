@@ -46,7 +46,7 @@ export const faqData = [
   },
   {
     id: 10,
-    question: 'What makes Akash Aggregators different from others?',
+    question: 'What makes Aakash Aggregators different from others?',
     answer: 'What sets us apart: (1) NISM Certified expertise (NISM-202400188719) ensuring SEBI-compliant professional advice, (2) 10+ years of experience across SBI Life, Bajaj Allianz, PNB MetLife — deep industry knowledge, (3) One-stop solution — Mutual Funds, Insurance, NPS, Loans, ITR Filing all under one roof, (4) Direct Government NPS partnership for seamless pension account management, (5) Personalized approach — solutions tailored to your specific risk appetite, timeline, and financial goals, (6) CRM-backed service — systematic tracking and follow-ups ensuring nothing falls through the cracks, (7) Based in Delhi with personal, face-to-face advisory available.',
   },
 ];

@@ -19,8 +19,8 @@ export default function ContactSection() {
     setStatus('submitting');
     const formData = new FormData(e.target);
     formData.append('access_key', '76c316a3-28c7-42d1-9994-8d2c3ca99e7b');
-    formData.append('subject', 'New Inquiry — Akash Aggregators');
-    formData.append('from_name', 'Akash Aggregators Website');
+    formData.append('subject', 'New Inquiry — Aakash Aggregators');
+    formData.append('from_name', 'Aakash Aggregators Website');
     try {
       const response = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData });
       const data = await response.json();
@@ -47,7 +47,7 @@ export default function ContactSection() {
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '24px' }}>
               {[
-                { href: 'mailto:support@aakashaggregators.com', icon: Mail, iconColor: '#10B981', label: 'Email', value: 'support@aakashaggregators.com' },
+                { href: 'mailto:support@aAakashaggregators.com', icon: Mail, iconColor: '#10B981', label: 'Email', value: 'support@aAakashaggregators.com' },
                 { href: 'tel:+919878869339', icon: Phone, iconColor: '#10B981', label: 'Phone', value: '+91-9878869339' },
                 { href: null, icon: MapPin, iconColor: '#10B981', label: 'Address', value: 'Second Floor, E-10, Ram Dutt Enclave, Uttam Nagar, New Delhi 110059' },
                 { href: 'https://www.linkedin.com/in/vaneet-bansal-a03749102', icon: ExternalLink, iconColor: '#4F46E5', label: 'LinkedIn', value: 'Connect with Vaneet Bansal', target: '_blank' },

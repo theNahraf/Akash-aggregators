@@ -15,7 +15,7 @@ const timeline = [
   { company: 'Bajaj Allianz', role: 'Sales Management & Customer Servicing', current: false },
   { company: 'PNB MetLife', role: 'Business Development & Policy Servicing', current: false },
   { company: 'SBI Life Insurance', role: 'Business Development & Financial Management ', current: false },
-  { company: 'Akash Aggregators', role: 'Director', current: true },
+  { company: 'Aakash Aggregators', role: 'Director', current: true },
 ];
 
 export default function About() {
@@ -88,7 +88,7 @@ export default function About() {
               deep expertise in mutual fund advisory, insurance solutions, and comprehensive financial planning. Having
               worked with leading insurance companies including SBI Life Insurance, Bajaj Allianz, and PNB MetLife, he
               has developed an unparalleled understanding of the Indian financial ecosystem. Now, as the founder of
-              Akash Aggregators, he provides personalized, SEBI-compliant financial solutions — from SIP investments
+              Aakash Aggregators, he provides personalized, SEBI-compliant financial solutions — from SIP investments
               and NPS management to ITR filing and loan assistance — all under one roof.
             </p>
 
