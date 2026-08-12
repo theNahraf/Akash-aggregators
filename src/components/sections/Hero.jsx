@@ -18,7 +18,7 @@ const itemVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' } },
 };
 
-const trustItems = ['SEBI Regulated', '10+ Years Experience', '1437+ Clients', 'Govt. Registered'];
+const trustItems = ['SEBI Regulated', '12+ Years Experience', '1937+ Clients', 'Govt. Registered'];
 
 export default function Hero() {
   const handleScrollTo = (id) => {
@@ -164,7 +164,7 @@ export default function Hero() {
                 animation: 'float 6s ease-in-out 2s infinite',
               }}>
                 <p className="data-label">Total AUM Managed</p>
-                <p className="font-display gold-shimmer" style={{ fontSize: '1.375rem', fontWeight: 700, marginTop: '4px' }}>₹4.2 Cr+</p>
+                <p className="font-display gold-shimmer" style={{ fontSize: '1.375rem', fontWeight: 700, marginTop: '4px' }}>₹5 Cr+</p>
               </div>
 
               {/* Floating Card 3 — Active Clients */}
@@ -175,7 +175,7 @@ export default function Hero() {
               }}>
                 <p className="data-label">Active Clients</p>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '4px' }}>
-                  <p className="font-display" style={{ fontSize: '1.375rem', fontWeight: 700, color: 'white' }}>1437+</p>
+                  <p className="font-display" style={{ fontSize: '1.375rem', fontWeight: 700, color: 'white' }}>1937+</p>
                   <span style={{ position: 'relative', width: '10px', height: '10px' }}>
                     <span style={{ position: 'absolute', inset: 0, borderRadius: '50%', background: '#10B981', animation: 'pulse-ring 2s ease-out infinite' }} />
                     <span style={{ position: 'relative', display: 'block', width: '10px', height: '10px', borderRadius: '50%', background: '#10B981' }} />

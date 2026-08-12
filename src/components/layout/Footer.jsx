@@ -76,10 +76,10 @@ export default function Footer() {
             <h3 className="font-data" style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'white', marginBottom: '20px' }}>Contact</h3>
             <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
               <li>
-                <a href="mailto:support@aAakashaggregators.com" className="font-body" style={{ fontSize: '0.875rem', color: '#94A3B8', textDecoration: 'none', wordBreak: 'break-all', transition: 'color 0.3s' }}
+                <a href="mailto:support@Aakashaggregators.com" className="font-body" style={{ fontSize: '0.875rem', color: '#94A3B8', textDecoration: 'none', wordBreak: 'break-all', transition: 'color 0.3s' }}
                   onMouseEnter={(e) => e.target.style.color = '#10B981'}
                   onMouseLeave={(e) => e.target.style.color = '#94A3B8'}>
-                  support@aAakashaggregators.com
+                  support@Aakashaggregators.com
                 </a>
               </li>
               <li>

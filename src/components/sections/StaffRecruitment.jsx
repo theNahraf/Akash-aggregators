@@ -8,7 +8,7 @@ const itemVariants = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 
 
 const highlights = [
   { icon: Users, value: '10,000+', label: 'Pre-Screened Candidates' },
-  { icon: Briefcase, value: '10+', label: 'Industry Verticals' },
+  { icon: Briefcase, value: '12+', label: 'Industry Verticals' },
   { icon: CheckCircle, value: '95%', label: 'Placement Success Rate' },
 ];
 

@@ -12,7 +12,7 @@ const itemVariants = {
 
 const cards = [
   { icon: Shield, title: 'NISM Certified', body: 'Official NISM-202400188719 registration ensuring professional and SEBI-compliant financial advice for all your investments.' },
-  { icon: Calendar, title: 'Decade of Experience', body: '10+ years in financial and business development. Alumni of SBI Life, Bajaj Allianz, and PNB MetLife.' },
+  { icon: Calendar, title: 'Decade of Experience', body: '12+ years in financial and business development. Alumni of SBI Life, Bajaj Allianz, and PNB MetLife.' },
   { icon: Home, title: 'One-Stop Solution', body: 'Mutual Funds · Insurance · NPS · Loans · ITR Filing — comprehensive financial services all under one roof.' },
   { icon: Users, title: 'Staff Recruitment Services', body: 'End-to-end hiring solutions — sourcing, screening & placing top talent across industries to build your winning team.' },
   { icon: Target, title: 'Personalized Approach', body: 'Solutions tailored to your risk appetite, timeline, and unique financial goals — no cookie-cutter advice.' },
