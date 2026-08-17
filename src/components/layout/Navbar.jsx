@@ -52,8 +52,8 @@ export default function Navbar() {
       <div className="section-container">
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '64px' }}>
           {/* Logo */}
-          <a href="#home" onClick={(e) => handleNavClick(e, '#home')} style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}>
-            <img src={logo} alt="Aakash Aggregators Logo" style={{ height: '36px', width: '36px', objectFit: 'contain' }} />
+          <a href="#home" onClick={(e) => handleNavClick(e, '#home')} style={{ display: 'flex', alignItems: 'center', gap: '0px', textDecoration: 'none' }}>
+            <img src={logo} alt="Aakash Aggregators Logo" style={{ height: '100px', width: '100px', objectFit: 'contain', marginRight: '-12px' }} />
             <span className="font-display" style={{ fontSize: '1.25rem', fontWeight: 700, color: 'white', letterSpacing: '-0.02em' }}>
               Aakash Aggregators
             </span>
@@ -164,7 +164,7 @@ export default function Navbar() {
             >
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '40px' }}>
                 <span className="font-display" style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '1.125rem', fontWeight: 700, color: 'white' }}>
-                  <img src={logo} alt="Aakash Aggregators Logo" style={{ height: '28px', width: '28px', objectFit: 'contain' }} />
+                  <img src={logo} alt="Aakash Aggregators Logo" style={{ height: '40px', width: '40px', objectFit: 'contain' }} />
                   Aakash Aggregators
                 </span>
                 <button onClick={() => setMobileOpen(false)} style={{ background: 'none', border: 'none', color: 'white', cursor: 'pointer', padding: '4px' }} aria-label="Close menu">
