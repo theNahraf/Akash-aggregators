@@ -34,7 +34,7 @@ export default function WhyChooseUs() {
         >
           <p className="section-label">◆ Why Choose Us</p>
           <h2 className="section-title">
-            Your Trusted Partner for Comprehensive Financial Solutions
+            Your Trusted Partner for Comprehensive Financial & Business Solutions
           </h2>
         </motion.div>
 
