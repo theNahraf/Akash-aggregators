@@ -67,8 +67,8 @@ export default function Hero() {
               maxWidth: '36rem',
               margin: '0 auto 32px',
             }}>
-              NISM Certified Mutual Fund Advisor with over a decade of expertise.
-              All Financial Instruments under one roof.
+              Our Expertise in Lead Generation & Appointment Fixing for B2B | B2C Channels to Connect with Right | Potential Customers.
+              NISM Certified
             </motion.p>
 
             {/* CTAs */}
