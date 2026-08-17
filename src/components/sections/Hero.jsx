@@ -69,7 +69,7 @@ export default function Hero() {
             }}>
               1. Our Expertise in Lead Generation & Appointment Fixing for B2B | B2C Channels to Connect with Right | Potential Customers.
               <br /><br />
-              2. NISM Certified Mutual Fund Advisors, GST & Company Registration/ ITR Filling, Business & Financial Planners (Advisors) through Lead Generations & Marketing Strategies.
+              2. NISM Certified Mutual Fund Advisors, GST & Company Registration/ ITR Filling, Business & Financial Planners.
 
             </motion.p>
 

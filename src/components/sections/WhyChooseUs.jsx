@@ -15,7 +15,7 @@ const cards = [
   { icon: Calendar, title: 'Decade of Experience', body: '12+ years in financial and business development. Alumni of SBI Life, Bajaj Allianz, and PNB MetLife.' },
   { icon: Home, title: 'One-Stop Solution', body: 'Mutual Funds · Insurance · NPS · Loans · ITR Filing — comprehensive financial services all under one roof.' },
   { icon: Users, title: 'Staff Recruitment Services', body: 'End-to-end hiring solutions — sourcing, screening & placing top talent across industries to build your winning team.' },
-  { icon: Target, title: 'Personalized Approach', body: 'Solutions tailored to your risk appetite, timeline, and unique financial goals — no cookie-cutter advice.' },
+  { icon: Target, title: 'Expertise in Lead Generation & Appointment Fixing', body: 'Lead Generation , Potential Customer Identification, Customer calling & Coordination, Appointment Fixing, Meeting Scdeduling' },
   { icon: MessageCircle, title: 'Dedicated Support', body: 'CRM-backed B2B & B2C marketing with continuous policy servicing and portfolio monitoring.' },
 ];
 
